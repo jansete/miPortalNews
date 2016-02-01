@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html ng-app="miPortalApp">
+<head lang="es">
+  <meta charset="UTF-8">
+  <title>Jugadores que acaban contrato en 2016 - mi portal news</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<div id="page-wrapper">
+  <div id="page">
+
+    <header id="header">
+      <div class="header-inner">
+        <div class="site-name">mi portal news</div>
+        <nav id="navigation">
+          <ul class="main-menu">
+            <li>Enlace 1</li>
+            <li>Enlace 2</li>
+            <li>Buscar</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div id="content">
+        <article class="content-news">
+          <div class="row-info">
+            <span class="category">Fútbol</span>
+            <span class="date">31 de Enero de 2016</span>
+          </div>
+          <h1 class="title">Jugadores que acaban contrato en 2016</h1>
+          <h2 class="subtitle">Pueden negociar su contraro para la próxima tempora desde el 1 de Enero.</h2>
+          <img src="img/main-image.jpg" alt="Jugadores que acaban contrato en 2016" title="Jugadores que acaban contrato en 2016" />
+          <div class="body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt aliquam tempor. Donec vel urna dignissim lectus porta dignissim. Praesent accumsan placerat laoreet. Sed molestie finibus nulla, in pulvinar dui condimentum non. Nunc vel mauris quis sem tincidunt hendrerit vel ut elit. Pellentesque nibh sem, interdum eget ullamcorper eget, scelerisque eu lectus. Sed dapibus pulvinar nunc, eu luctus tortor suscipit quis. Duis justo odio, lobortis nec venenatis eu, hendrerit non nunc. Nunc sagittis eros est, vel tincidunt est posuere eu. Aliquam elementum finibus metus non tincidunt. Vivamus sodales mi varius, vulputate est at, porta magna. Vestibulum pulvinar scelerisque odio, non cursus odio facilisis vitae. Nullam at felis at ipsum condimentum fermentum eget vel nisi. Integer ipsum velit, pretium ac sem nec, tincidunt pellentesque lorem. Etiam sit amet fermentum lectus.</p>
+
+            <p>Nullam non tellus mi. Cras pellentesque, eros feugiat congue faucibus, leo metus tempus nibh, id tincidunt metus sapien a tortor. Vivamus ultricies cursus urna nec malesuada. Phasellus lorem lectus, interdum lacinia magna ac, convallis lobortis elit. Pellentesque accumsan accumsan dui, et auctor odio posuere at. Maecenas et ex nunc. Nulla semper massa metus, in ornare lorem finibus quis. Etiam egestas tincidunt lobortis. Fusce ut justo quis nisi vehicula accumsan id non arcu. Duis ut lorem eget nisi consequat tincidunt. Integer aliquam pulvinar sem, et hendrerit nisl rutrum quis. Vivamus odio magna, porttitor sed aliquam sed, aliquam vel nisi.</p>
+
+            <p>Pellentesque eros erat, interdum nec venenatis ac, sagittis vitae est. Donec vestibulum vel odio vitae suscipit. Pellentesque accumsan dictum nulla, nec commodo felis placerat ut. Vivamus varius ligula quis tristique luctus. Mauris ac tincidunt quam, vitae consectetur elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ultrices rhoncus tortor, in luctus neque. Vestibulum sed neque urna. Suspendisse dignissim finibus augue, varius consectetur lacus venenatis nec. Nam commodo purus quis sem pretium pretium. Praesent dictum diam sapien, molestie venenatis metus scelerisque in.</p>
+
+            <p>Cras vulputate, magna vel euismod feugiat, leo ex posuere eros, id aliquam eros dolor non diam. Morbi id egestas erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras id augue quam. Etiam fermentum enim a lacinia dictum. Ut mattis tortor felis, id dictum neque facilisis vitae. Vivamus porttitor quam ac laoreet tempus. Cras tincidunt purus ut tellus mattis porta. Nunc nec rutrum augue, eget dapibus nunc. Donec luctus pulvinar neque vitae malesuada. Vestibulum accumsan tempus tellus ut porttitor.</p>
+          </div>
+
+          <div class="attach" ng-controller="tableController">
+            <h3>Listado de jugadores</h3>
+
+            <form class="search-form">
+              <input type="text" class="form-text" placeholder="Buscar..." ng-model="searchPlayer">
+            </form>
+
+            <table class="table table-bordered table-striped">
+
+              <thead>
+              <tr>
+                <!-- @todo refactor this with ng-repeat -->
+                <td class="column-position">
+                  <a href="" ng-click="sortType = 'position'; sortReverse = !sortReverse">
+                    Posición
+                    <span ng-show="sortType == 'position' && !sortReverse">↲</span>
+                    <span ng-show="sortType == 'position' && sortReverse">↰</span>
+                  </a>
+                </td>
+                <td class="column-team">
+                  <a href="" ng-click="sortType = 'team'; sortReverse = !sortReverse">
+                    Equipo
+                    <span ng-show="sortType == 'team' && !sortReverse">↲</span>
+                    <span ng-show="sortType == 'team' && sortReverse">↰</span>
+                  </a>
+                </td>
+                <td class="column-name">
+                  <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                    Jugador
+                    <span ng-show="sortType == 'name' && !sortReverse">↲</span>
+                    <span ng-show="sortType == 'name' && sortReverse">↰</span>
+                  </a>
+                </td>
+                <td class="column-age">
+                  <a href="" ng-click="sortType = 'age'; sortReverse = !sortReverse">
+                    Edad
+                    <span ng-show="sortType == 'age' && !sortReverse">↲</span>
+                    <span ng-show="sortType == 'age' && sortReverse">↰</span>
+                  </a>
+                </td>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr ng-repeat="player in players | orderBy:sortType:sortReverse | filter:searchPlayer">
+                <td class="column-position">{{ player.position }}</td>
+                <td class="column-team">{{ player.team }}</td>
+                <td class="column-name">{{ player.name }}</td>
+                <td class="column-age">{{ player.age }}</td>
+              </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </article>
+
+        <section class="related-content">
+          <h2 class="section-title">Noticias Relacionadas</h2>
+          <div class="section-container">
+            <article class="teaser-news">
+              <img src="img/related-news-1.jpg" alt="Noticia 1" title="Noticia 1" />
+              <h3><a>Terry anuncia que el Chelsea no le renueva</a></h3>
+            </article>
+            <article class="teaser-news">
+              <img src="img/related-news-2.jpg" alt="Noticia 2" title="Noticia 2" />
+              <h3><a>Victoria a medio gas</a></h3>
+            </article>
+            <article class="teaser-news">
+              <img src="img/related-news-3.jpg" alt="Noticia 3" title="Noticia 3">
+              <h3><a>Jémez "Hay que tener cuidado con Lucas Pérez"</a></h3>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <footer id="footer">Footer</footer>
+
+  </div>
+</div>
+<script type="text/javascript" src="js/vendor/angular.min.js"></script>
+<script type="text/javascript" src="js/app/app.js"></script>
+<script type="text/javascript" src="js/app/controller.js"></script>
+</body>
+</html>

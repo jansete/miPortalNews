@@ -1,0 +1,12 @@
+{
+  "name": "miportalnews",
+  "version": "1.0.0",
+  "description": "Grunt.js para miportal",
+  "author": "Juanen",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compass": "^1.0.3",
+    "grunt-contrib-cssmin": "^0.13.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

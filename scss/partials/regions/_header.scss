@@ -1,0 +1,25 @@
+#header {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  background: $grey-header;
+  top: 0;
+
+  .header-inner {
+    padding: 15px 0;
+    @include container($mobile-container);
+
+    @include breakpoint($desktop) {
+      @include container($desktop);
+    }
+  }
+
+  .site-name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .main-menu {
+    display: none;
+  }
+}

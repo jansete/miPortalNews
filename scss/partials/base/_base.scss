@@ -1,0 +1,35 @@
+img {
+  max-width: 100%;
+}
+
+table {
+  thead {
+    a {
+      color: #93c54b;
+      text-decoration: none;
+    }
+  }
+
+  tbody {
+    & > tr:nth-child(odd) {
+      td,
+      th {
+        background-color: $grey-table-cell;
+      }
+    }
+  }
+
+  thead,
+  tbody,
+  tfoot {
+    tr {
+      td,
+      th {
+        padding: 8px;
+        vertical-align: top;
+        border: 1px solid $grey-table-border;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,14 @@
+#content-wrapper {
+  @include container($mobile-container);
+  clear: both;
+
+  @include breakpoint($desktop) {
+    @include container($desktop);
+  }
+
+  #content {
+    margin-top: 52px;
+    padding-top: 15px;
+
+  }
+}

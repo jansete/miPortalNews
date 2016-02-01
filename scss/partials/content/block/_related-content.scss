@@ -1,0 +1,18 @@
+.related-content {
+  article {
+    margin-bottom: 15px;
+
+    h3 {
+      font-size: 1.3em;
+      margin-top: 0.5em;
+    }
+
+    @include breakpoint($tablet) {
+      @include span(4);
+
+      &:last-of-type {
+        @include span(4 at 9);
+      }
+    }
+  }
+}

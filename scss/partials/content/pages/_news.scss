@@ -1,0 +1,24 @@
+.content-news {
+  overflow: hidden;
+
+  @include breakpoint($desktop) {
+    h1,
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .row-info {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+
+    .category {
+      float: left;
+    }
+
+    .date {
+      float: right;
+    }
+  }
+}
